@@ -5,7 +5,7 @@ export const createMyUser = async (req: Request, res: Response) => {
   try {
     const { auth0Id } = req.body;
 
-    const exitingUser = await User.findOne(auth0Id);
+    const exitingUser = await User.findOne({auth0Id});
 
     if (exitingUser) {
       return res.status(200).send();

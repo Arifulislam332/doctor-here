@@ -10,7 +10,7 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/my/user",userRoute);
+app.use("/api/my/user", userRoute);
 app.use("/api/appoinment", appoinmentRoute);
 
 app.get("/health", async (req: Request, res: Response) => {
@@ -22,5 +22,5 @@ connectDb();
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
-  console.log(`Your server is runing on port ${port}`);
+  console.log(`http://localhost:${port}`);
 });
