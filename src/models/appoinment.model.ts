@@ -5,20 +5,25 @@ const appoinmentSchema = new mongoose.Schema(
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     contact: {
       type: String,
+      required: true,
     },
     address: {
       type: String,
+      required: true,
     },
-    bookedServices: [
+    bookingdServices: [
       {
         type: String,
+        required: true,
       },
     ],
     comment: {
       type: String,
+      required: true,
     },
-    date: {
+    visitingDate: {
       type: String,
+      required: true,
     },
   },
   {
