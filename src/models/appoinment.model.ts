@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 const appoinmentSchema = new mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    name: {
+      type: String,
+      required: true,
+    },
     contact: {
       type: String,
       required: true,
