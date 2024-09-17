@@ -1,9 +1,16 @@
 import express, { Router } from "express";
 import { createAppoinment } from "../controllers/appoinment.controller";
-import { jwtCheck } from "../middlewares/auth.middleware";
+import { jwtCheck, jwtParse } from "../middlewares/auth.middleware";
+import { validatorUserAppoinmentRequest } from "../dto/appoinment.dto";
 
 const router: Router = express.Router();
 
-router.post("/", jwtCheck, createAppoinment);
+router.post(
+  "/",
+  validatorUserAppoinmentRequest,
+  jwtCheck,
+  jwtParse,
+  createAppoinment
+);
 
 export default router;

@@ -4,6 +4,13 @@ import mongoose from "mongoose";
 
 export const createAppoinment = async (req: Request, res: Response) => {
   try {
+    const exitingAppoinment = await Appoinment.findOne({ user: req.userId });
+
+    if (exitingAppoinment) {
+      return res
+        .status(409)
+        .json({ message: "User appoinment already exists" });
+    }
     const appoinment = new Appoinment(req.body);
     appoinment.user = new mongoose.Types.ObjectId(req.userId);
 

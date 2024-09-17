@@ -15,20 +15,16 @@ const appoinmentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    bookingdServices: [
+    comment: {
+      type: String,
+      required: true,
+    },
+    bookingServices: [
       {
         type: String,
         required: true,
       },
     ],
-    comment: {
-      type: String,
-      required: true,
-    },
-    visitingDate: {
-      type: String,
-      required: true,
-    },
   },
   {
     timestamps: true,
